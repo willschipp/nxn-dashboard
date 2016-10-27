@@ -1,0 +1,90 @@
+<html lang="en" ng-app="nxn-app">
+<head>
+  <title>NexGen - Smart Districts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- favicon -->
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="/node_modules/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/node_modules/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body ng-cloak ng-controller="menuController">
+
+  <md-content>
+
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="false" ng-click="showMenu()">
+          <md-icon md-font-set="material-icons">menu</md-icon>
+        </md-button>
+        <h2>
+          <span>NexGen - Smart Districts</span>
+        </h2>
+      </div>
+    </md-toolbar>
+
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" layout-fill>
+      <md-toolbar class="md-hue-2">
+        <md-button class="md-icon-button" aria-label="closeMenu" ng-click="showMenu()">
+          <md-icon md-font-set="material-icons">chevron_left</md-icon>
+        </md-button>
+      </md-toolbar>
+      <md-content>
+        <md-list>
+          <md-list-item>
+            <a ui-sref="home" class="md-button" ng-click="showMenu()"><md-icon md-font-set="material-icons">home</md-icon>Home</a>
+          </md-list-item>
+          <md-list-item>
+            <a ui-sref="map" class="md-button" ng-click="showMenu()"><md-icon md-font-set="material-icons">map</md-icon>Map View</a>
+          </md-list-item>
+          <md-list-item>
+            <a ui-sref="dashboard" class="md-button" ng-click="showMenu()"><md-icon md-font-set="material-icons">dashboard</md-icon>Dashboard View</a>
+          </md-list-item>
+        </md-list>
+
+
+      </md-content>
+    </md-sidenav>
+
+    <div ui-view></div>
+
+  </md-content>
+
+  <!-- <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/materialize/dist/js/materialize.min.js"></script>
+  <script src="/bower_components/moment/moment.js"></script>
+  <script src="/bower_components/lodash/dist/lodash.min.js"></script>
+  <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyA3wMJDHdnrcRY_1lktQIYmokmgSVvQ1R0&libraries=places'></script> -->
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="/node_modules/angular/angular.min.js"></script>
+  <script src="/node_modules/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+  <script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/node_modules/angular-animate/angular-animate.min.js"></script>
+  <script src="/node_modules/angular-aria/angular-aria.min.js"></script>
+  <script src="/node_modules/angular-messages/angular-messages.min.js"></script>
+
+  <!-- map -->
+  <script src="/node_modules/leaflet/dist/leaflet.js"></script>
+  <script src="/node_modules/angular-leaflet-directive/dist/angular-leaflet-directive.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="/node_modules/angular-material/angular-material.min.js"></script>
+
+  <!-- Chart Library -->
+  <script src="/node_modules/chart.js/dist/Chart.min.js"></script>
+  <script src="/node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+
+  <!-- application library -->
+
+  <script src="/js/app.js"></script>
+  <script src="/js/router.js"></script>
+
+  <script src="/js/controller/homeController.js"></script>
+  <script src="/js/controller/mapController.js"></script>
+  <script src="/js/controller/menuController.js"></script>
+  <script src="/js/controller/dashboardController.js"></script>
+
+</body>
+</html>

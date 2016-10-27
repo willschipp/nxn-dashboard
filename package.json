@@ -1,0 +1,29 @@
+{
+  "name": "dashboard-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-chart.js": "^1.0.3",
+    "angular-leaflet-directive": "^0.10.0",
+    "angular-material": "^1.1.1",
+    "angular-messages": "^1.5.8",
+    "angular-simple-logger": "^0.1.7",
+    "angular-ui-router": "^0.3.1",
+    "chart.js": "^2.3.0",
+    "express": "^4.14.0",
+    "material-design-icons": "^3.0.1"
+  },
+  "engines": {
+    "node": "6.9.0",
+    "npm": "2.7.4"
+  }
+}

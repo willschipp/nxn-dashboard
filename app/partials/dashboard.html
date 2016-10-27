@@ -1,0 +1,73 @@
+<md-content layout-padding layout="row">
+
+  <md-card>
+    <div class="md-card-image">
+      <canvas id="doughnut" class="chart chart-doughnut"
+        chart-data="data" chart-labels="labels">
+      </canvas>
+    </div>
+    <md-card-title>
+      <md-card-title-text>
+        <div style="text-align:center">
+          <h4>A Metric</h4>
+        </div>
+      </md-card-title-text>
+    </md-card-title>
+  </md-card>
+
+  <md-card>
+    <div class="md-card-image">
+      <canvas id="bar" class="chart chart-bar"
+        chart-data="bardata" chart-labels="barlabels" chart-series="barseries">
+      </canvas>
+    </div>
+    <md-card-title>
+      <md-card-title-text>
+        <div style="text-align:center">
+          <h4>Another Metric</h4>
+        </div>
+      </md-card-title-text>
+    </md-card-title>
+  </md-card>
+
+  <md-card>
+    <div class="md-card-image">
+      <canvas id="line" class="chart chart-line" chart-data="linedata"
+      chart-labels="linelabels" chart-series="lineseries" chart-options="lineoptions"
+      chart-dataset-override="linedatasetOverride" chart-click="onClick">
+      </canvas>
+    </div>
+    <md-card-title>
+      <md-card-title-text>
+        <div style="text-align:center">
+          <h4>And Another Metric</h4>
+        </div>
+      </md-card-title-text>
+    </md-card-title>
+  </md-card>
+
+  <md-card>
+    <div class="md-card-image">
+      <canvas id="pie" class="chart chart-pie"
+        chart-data="data" chart-labels="labels">
+      </canvas>
+    </div>
+    <md-card-title>
+      <md-card-title-text>
+        <div style="text-align:center">
+          <h4>A Metric</h4>
+        </div>
+      </md-card-title-text>
+    </md-card-title>
+  </md-card>
+
+</md-content>
+
+<md-divider></md-divider>
+
+<md-content layout-padding>
+  <div md-whiteframe="3">
+    <h4>Contextual Data</h4>
+    <p>Show some additional information here</p>
+  </div>
+</md-content>
