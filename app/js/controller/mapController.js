@@ -23,8 +23,8 @@ angular.module('nxn-app').controller('mapController',['$scope','$mdPanel','$root
 
   var position = $mdPanel.newPanelPosition()
       .absolute()
-      .top('25%')
-      .left('55%');
+      .top('50%')
+      .left('50%');
 
   var config = {
       attachTo: angular.element(document.body),
