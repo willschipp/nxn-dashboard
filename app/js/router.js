@@ -11,7 +11,12 @@ angular.module('nxn-app').config(['$stateProvider','$urlRouterProvider',function
   $stateProvider.state('map',{
     url:'/home',
     templateUrl:'/partials/map.html',
-    controller:'mapController'
+    controller:'mapController',
+    resolve: {
+      postPromise:['markerService',function(markerService) {
+        return markerService.load();
+      }]
+    }
   });
 
   $stateProvider.state('dashboard',{

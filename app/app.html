@@ -24,7 +24,7 @@
       </div>
     </md-toolbar>
 
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" layout-fill>
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" layout-fill style="z-index:10000">
       <md-toolbar class="md-hue-2">
         <div class="md-toolbar-tools">
           <md-button class="md-icon-button" aria-label="closeMenu" ng-click="showMenu()">
@@ -53,15 +53,9 @@
       </md-content>
     </md-sidenav>
 
-    <div ui-view></div>
+    <md-content flex layout-padding layout-fill ui-view></md-content>
 
   </md-content>
-
-  <!-- <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="/bower_components/materialize/dist/js/materialize.min.js"></script>
-  <script src="/bower_components/moment/moment.js"></script>
-  <script src="/bower_components/lodash/dist/lodash.min.js"></script>
-  <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyA3wMJDHdnrcRY_1lktQIYmokmgSVvQ1R0&libraries=places'></script> -->
 
   <!-- Angular Material requires Angular.js Libraries -->
   <script src="/node_modules/angular/angular.min.js"></script>
@@ -91,6 +85,8 @@
   <script src="/js/controller/mapController.js"></script>
   <script src="/js/controller/menuController.js"></script>
   <script src="/js/controller/dashboardController.js"></script>
+
+  <script src="/js/service/markerService.js"></script>
 
 </body>
 </html>
