@@ -9,32 +9,53 @@
   <link rel="stylesheet" href="/node_modules/leaflet/dist/leaflet.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
-<body ng-cloak ng-controller="authController">
+<body ng-cloak ng-controller="menuController">
 
-  <md-content layout-fill layout="column" layout-padding>
-    <div flex></div>
-    <div layout="row">
-      <div flex></div>
-      <div md-whiteframe="3"layout-padding>
-        <img src="/img/logo.png"/>
-        <form layout-padding>
-          <md-input>
-            <label>Username</label>
-            <input type="text" ng-model="user.username">
-          </md-input>
-          <md-input>
-            <label>Password</label>
-            <input type="password" ng-model="user.password">
-          </md-input>
-          <md-button>Login</md-button>
-        </form>
+  <md-content>
+
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Menu" ng-click="showMenu()">
+          <md-icon md-font-set="material-icons">menu</md-icon>
+        </md-button>
+        <h2>
+          <span>NexGen - Smart Districts</span>
+        </h2>
       </div>
-      <div flex></div>
-    </div>
-    <div flex></div>
+    </md-toolbar>
+
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" layout-fill>
+      <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+          <md-button class="md-icon-button" aria-label="closeMenu" ng-click="showMenu()">
+            <md-icon md-font-set="material-icons">chevron_left</md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+      <md-content>
+        <md-list>
+          <md-list-item>
+            <a ui-sref="home" class="md-button" ng-click="showMenu()"><md-icon md-font-set="material-icons">home</md-icon>Home</a>
+          </md-list-item>
+          <md-list-item>
+            <a ui-sref="map" class="md-button" ng-click="showMenu()"><md-icon md-font-set="material-icons">map</md-icon>Map View</a>
+          </md-list-item>
+          <md-list-item>
+            <a ui-sref="dashboard" class="md-button" ng-click="showMenu()"><md-icon md-font-set="material-icons">dashboard</md-icon>Dashboard View</a>
+          </md-list-item>
+        </md-list>
+        <md-divider></md-divider>
+        <md-list>
+          <md-list-item>
+            <a href class="md-button" ng-click="logout()"><md-icon md-font-set="material-icons">exit_to_app</md-icon>Logout</a>
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </md-sidenav>
+
+    <div ui-view></div>
 
   </md-content>
-
 
   <!-- <script src="/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="/bower_components/materialize/dist/js/materialize.min.js"></script>
@@ -70,7 +91,6 @@
   <script src="/js/controller/mapController.js"></script>
   <script src="/js/controller/menuController.js"></script>
   <script src="/js/controller/dashboardController.js"></script>
-  <script src="/js/controller/authController.js"></script>
 
 </body>
 </html>
