@@ -35,3 +35,8 @@
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
+.angular-leaflet-map {
+  height:98vh;
+  width:98vw;
+}

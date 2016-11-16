@@ -1,5 +1,12 @@
 const express = require('express');
 const app = express();
+const passport = require('./security');
+
+//components
+app.use(require('body-parser').urlencoded({extended:true}));
+app.use(require('body-parser').json());
+app.use(passport.initialize());
+// app.use(passport.session());
 
 //statics
 app.use('/node_modules',express.static(__dirname + '/node_modules'));
@@ -18,8 +25,13 @@ app.get('/',function(req,res) {
   res.sendFile(__dirname + '/app/index.html');
 });
 
-app.get('/app',function(req,res) {
+app.get('/app',passport.validate(),function(req,res) {
   res.sendFile(__dirname + '/app/app.html');
+});
+
+app.post('/',passport.authenticate('local'),function(req,res) {
+  console.log(req.user);
+  res.json({"hello":"world"});
 });
 
 //start the server
