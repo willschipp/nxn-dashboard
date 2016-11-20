@@ -58,7 +58,7 @@ app.post('/',function(req,res,next) {
       return next(err);
     }//end if
     if (user) {
-      var token = jwt.sign({username:req.body.username},SECRET,{
+      var token = jwt.sign(user,SECRET,{
         expiresIn:900
       });
       return res.json({token:token});

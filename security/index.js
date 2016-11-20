@@ -3,18 +3,14 @@ const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const jwt = require('jsonwebtoken');
+const Users = require('./users');
 
-//TODO --fix
-const user = {
-  username:'admin',
-  password:'welcome',
-  id:1
-}
 
 const SECRET = "somereallylongsupersecretexpression";
 
 passport.use(new LocalStrategy(function(username,password,done){
-  if (username == user.username && password == user.password) {
+  var user = Users.findByUsername(username);
+  if (user) {
     done(null,user);
   } else {
     done(null,false);

@@ -25,4 +25,10 @@ angular.module('nxn-app').config(['$stateProvider','$urlRouterProvider','$httpPr
     controller:'dashboardController'
   });
 
+}]).run(['$state','$rootScope',function($state,$rootScope,authService){
+  $rootScope.$on('$stateChangeStart',function(e, toState, toParams, fromState, fromParams){
+    if (toState.name == 'home') {
+      //check the user role
+    }//end if
+  });
 }]);
