@@ -5,9 +5,10 @@ angular.module('nxn-app').controller('authController',['$scope','$window','$http
   $scope.login = function() {
     return authService.authenticate($scope.user.username,$scope.user.password).then(function(result) {
       if (result == true) {
-        $window.location = '/app';
+        $window.location = '/app?token=' + authService.retrieve();
       } else {
-        
+        console.log('not authenticated');
+        $window.location = '/';
       }
     });
     // if (!$scope.user.username) {

@@ -1,4 +1,4 @@
-angular.module('nxn-app').config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider) {
+angular.module('nxn-app').config(['$stateProvider','$urlRouterProvider','$httpProvider',function($stateProvider,$urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/home');
 
