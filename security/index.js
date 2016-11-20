@@ -21,49 +21,6 @@ passport.use(new LocalStrategy(function(username,password,done){
   }
 }));
 
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
-
-// used to deserialize the user
-passport.deserializeUser(function(id, done) {
-  if (id == user.id) {
-    done(null,user);
-  }
-  //   User.findById(id, function(err, user) {
-  //       done(err, user);
-  //   });
-});
-
-function serialize(req, res, next) {
-  // db.updateOrCreate(req.user, function(err, user){
-  //   if(err) {return next(err);}
-  //   // we store the updated information in req.user again
-  //   req.user = {
-  //     id: user.id
-  //   };
-  //   next();
-  // });
-  next();//just call
-}
-
-function generateToken(req, res, next) {
-  req.token = jwt.sign({
-    id: req.user.id,
-  }, 'server secret', {
-    expiresInMinutes: 120
-  });
-  next();
-}
-
-function respond(req, res) {
-  res.status(200).json({
-    user: req.user,
-    token: req.token
-  });
-}
-
-
 passport.validate = function() {
   return function(req,res,next) {
     if (req.isAuthenticated()) {
