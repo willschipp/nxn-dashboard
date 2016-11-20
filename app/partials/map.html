@@ -6,7 +6,15 @@
       <div md-whiteframe="3" layout="column" layout-fill style="min-width:60%">
         <md-toolbar class="md-hue-2">
           <div class="md-toolbar-tools">
-            {{panel.heading}}
+            <div>
+              {{panel.heading}}
+            </div>
+            <div flex></div>
+            <div>
+              <md-button class="md-icon-button" aria-label="View" ng-click="viewDetail(panel)">
+                <md-icon md-font-set="material-icons">dashboard</md-icon>
+              </md-button>
+            </div>
           </div>
         </md-toolbar>
         <div layout-padding>

@@ -24,34 +24,7 @@
       </div>
     </md-toolbar>
 
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" layout-fill style="z-index:10000">
-      <md-toolbar class="md-hue-2">
-        <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" aria-label="closeMenu" ng-click="showMenu()">
-            <md-icon md-font-set="material-icons">chevron_left</md-icon>
-          </md-button>
-        </div>
-      </md-toolbar>
-      <md-content>
-        <md-list>
-          <md-list-item>
-            <a ui-sref="home" class="md-button" ng-click="showMenu()"><md-icon md-font-set="material-icons">home</md-icon>Home</a>
-          </md-list-item>
-          <md-list-item>
-            <a ui-sref="map" class="md-button" ng-click="showMenu()"><md-icon md-font-set="material-icons">map</md-icon>Map View</a>
-          </md-list-item>
-          <md-list-item>
-            <a ui-sref="dashboard" class="md-button" ng-click="showMenu()"><md-icon md-font-set="material-icons">dashboard</md-icon>Dashboard View</a>
-          </md-list-item>
-        </md-list>
-        <md-divider></md-divider>
-        <md-list>
-          <md-list-item>
-            <a href class="md-button" ng-click="logout()"><md-icon md-font-set="material-icons">exit_to_app</md-icon>Logout</a>
-          </md-list-item>
-        </md-list>
-      </md-content>
-    </md-sidenav>
+    <ng-include src="'/partials/menu.html'"></ng-include>
 
     <md-content flex layout-padding layout-fill ui-view></md-content>
 

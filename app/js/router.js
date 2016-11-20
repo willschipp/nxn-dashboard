@@ -8,8 +8,14 @@ angular.module('nxn-app').config(['$stateProvider','$urlRouterProvider','$httpPr
     controller:'homeController'
   });
 
+  $stateProvider.state('about',{
+    url:'/about',
+    templateUrl:'/partials/home.html',
+    controller:'homeController'
+  });
+
   $stateProvider.state('map',{
-    url:'/home',
+    url:'/map',
     templateUrl:'/partials/map.html',
     controller:'mapController',
     resolve: {
@@ -20,15 +26,25 @@ angular.module('nxn-app').config(['$stateProvider','$urlRouterProvider','$httpPr
   });
 
   $stateProvider.state('dashboard',{
-    url:'/home',
+    url:'/dashboard',
     templateUrl:'/partials/dashboard.html',
-    controller:'dashboardController'
+    controller:'dashboardController',
+    params: {
+      siteId:-1
+    }
   });
 
-}]).run(['$state','$rootScope',function($state,$rootScope,authService){
+}]).run(['$state','$rootScope','authService',function($state,$rootScope,authService){
   $rootScope.$on('$stateChangeStart',function(e, toState, toParams, fromState, fromParams){
     if (toState.name == 'home') {
       //check the user role
+      if (authService.hasRole('multi')) {
+        e.preventDefault();
+        return $state.go('map');
+      } else if (authService.hasRole('single')) {
+        e.preventDefault();
+        return $state.go('dashboard');
+      }//end if
     }//end if
   });
 }]);

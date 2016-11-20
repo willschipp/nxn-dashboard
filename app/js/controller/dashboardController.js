@@ -1,4 +1,4 @@
-angular.module('nxn-app').controller('dashboardController',['$scope',function($scope) {
+angular.module('nxn-app').controller('dashboardController',['$scope','$stateParams',function($scope,$stateParams) {
 
   $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
   $scope.data = [300, 500, 100];
@@ -40,5 +40,8 @@ angular.module('nxn-app').controller('dashboardController',['$scope',function($s
       ]
     }
   };
+
+  //TODO --load data based on the passed identity
+  console.log($stateParams);
 
 }]);

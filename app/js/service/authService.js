@@ -18,6 +18,28 @@ angular.module('nxn-app').factory('authService',['$http','$window',function($htt
     $window.localStorage.removeItem(KEY);
   }
 
+  o.getRoles = function() {
+    var token = o.retrieve();
+    if (token) {
+        var parsedToken = o.parseJWT(token);
+        return parsedToken.roles;
+    }//end if
+    return;
+  }
+
+  o.hasRole = function(role) {
+    var roles = o.getRoles();
+    if (roles) {
+      for (var i=0;i<roles.length;i++) {
+        if (roles[i] == role) {
+          return true;
+        }//end if
+      }//end for
+    }//end fir
+    //return
+    return false;
+  }
+
   o.isAuthenticated = function() {
     //retrieve the token
     var token = o.retrieve();

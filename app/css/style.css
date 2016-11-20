@@ -40,3 +40,7 @@
   height:98vh;
   width:98vw;
 }
+
+.md-dialog-container {
+  z-index: 20000;
+}

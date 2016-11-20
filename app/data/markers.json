@@ -11,7 +11,8 @@
       "heading":"NexGen - Dubai",
       "content":[
         "an","array","of","data"
-      ]
+      ],
+      "siteId":1
     }
   },
   "spinneysMarker": {
@@ -27,6 +28,8 @@
       "content":[
         "an","array","of","data"
       ]
+      ,
+      "siteId":2      
     }
   }
 }
