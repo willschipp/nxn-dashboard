@@ -1,8 +1,7 @@
-angular.module('nxn-app').controller('menuController',['$scope','$mdSidenav','$window',function($scope,$mdSidenav,$window) {
+angular.module('nxn-app').controller('menuController',['$scope','$mdSidenav','$window','$http',function($scope,$mdSidenav,$window,$http) {
 
   $scope.logout = function() {
-    //TODO logout procedure
-    $window.location = '/';
+    $window.location = '/logout';
   }
 
   $scope.showMenu = function() {

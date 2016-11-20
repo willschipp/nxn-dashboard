@@ -12,11 +12,26 @@ const SECRET = "somereallylongsupersecretexpression";
 
 passport.use(new LocalStrategy(function(username,password,done){
   if (username == user.username && password == user.password) {
+    console.log('authenticated');
     done(null,user);
   } else {
     done(null,false);
   }
 }));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+// used to deserialize the user
+passport.deserializeUser(function(id, done) {
+  if (id == user.id) {
+    done(null,user);
+  }
+  //   User.findById(id, function(err, user) {
+  //       done(err, user);
+  //   });
+});
 
 function serialize(req, res, next) {
   // db.updateOrCreate(req.user, function(err, user){
