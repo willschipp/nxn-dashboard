@@ -3,6 +3,8 @@ const app = express();
 const passport = require('./security');
 
 var SECRET_TOKEN = "thisisalongsecrettokenapparently";
+const jwt = require('jsonwebtoken');
+const SECRET = "somereallylongsupersecretexpression";
 
 //components
 app.use(require('body-parser').urlencoded({extended:true}));
@@ -32,9 +34,19 @@ app.get('/app',passport.validate(),function(req,res) {
   res.sendFile(__dirname + '/app/app.html');
 });
 
-app.post('/',passport.authenticate('local'),function(req,res) {
-  console.log(req.user);
-  res.json({"hello":"world"});
+// app.post('/',passport.authenticate('jwt'),function(req,res) {
+app.post('/',function(req,res) {
+  if (req.query.username == 'admin' && req.query.password == 'welcome') {
+    //create the token
+    var token = jwt.sign({username:'admin'},SECRET,{
+      expiresIn:900
+    });
+    //send
+    console.log('authenticate succeeded');
+    return res.json({success:true,token:'JWT ' + token});
+  }//end if
+  console.log('authenticate failed');
+  return res.send({success:false});
 });
 
 app.get('/logout',function(req,res) {
